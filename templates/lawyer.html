@@ -9,8 +9,7 @@
 		<title>변호사 소개</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<link rel="stylesheet" href="assets/css/main.css" />
-		<link rel="stylesheet" href="assets/css/lawfirmsinsa.css" />
+		<link rel="stylesheet" href="{{ url_for('static', filename='assets/css/main.css') }}" />
 			<!-- google font -->
 	    <link href="https://fonts.googleapis.com/css?family=Do+Hyeon&display=swap" rel="stylesheet">
 	        
@@ -24,9 +23,9 @@
 		<!-- Header -->
 			<header id="header">
 				<div class="inner">
-					<a href="index.html" class="logo">법무법인 신사</a>
+					<a href="{{ url_for('home')}}" class="logo">법무법인 디스커버리</a>
 					<nav id="nav">
-						<a class="rightMenu" href="lawyer.html">변호사 소개</a>
+						<a class="rightMenu" href="{{ url_for('lawyer')}}">변호사 소개</a>
 						<a class="rightMenu" href="filed.html">업무분야</a>
 						<a class="rightMenu" href="case.html">승소사례</a>						
 						<a class="rightMenu" href="#">|</a>
@@ -46,13 +45,16 @@
 						<h2>About Our Lawyer</h2>
 						<p>저희 법인의 변호사들을 소개합니다</p>
 					</header>
-					<div class="flex flex-2">
+					<div class="flex">
 						<article>
-							<div class="card mb-3" style="max-width: 540px;">
+							<div class="card mb-3" style="max-width: 100%;">
 							  <div class="row no-gutters">
 							    <div class="col-md-4">
-							      <img src="images/profile_jinu01.jpeg" class="card-img" alt="...">
-							    </div>
+								  <img id="profile_img_jinu" src="{{ url_for('static', filename='images/profile_jinu01.jpeg') }}" class="card-img" alt="...">
+								  <div class="card">
+								  	<p class="profile-contact">이메일 : <a href="#">jinu0720@naver.com</a><br /> 전화 : 010-xxxx-xxxx</p>
+								  </div>
+								</div>								
 							    <div class="col-md-8">
 							      <div class="card-body">
 							        <h5 class="card-title">박진우 대표변호사</h5>
@@ -87,17 +89,17 @@
 							      </div>
 							    </div>
 							  </div>
-							</div>					
-							<footer>
-								<a href="#" class="button special btn-win">주요 승소사례</a>					
-							</footer>
+							  <footer>
+									<a href="#" class="button special btn-win">주요 승소사례</a>					
+								</footer>
+							</div>												
 						</article>
 						<article>
 
-							<div class="card mb-3" style="max-width: 540px;">
+							<div class="card mb-3" style="max-width: 100%;">
 							  <div class="row no-gutters">
 							    <div class="col-md-4">
-							      <img src="images/profile_hoseong01.jpg" class="card-img" alt="...">
+							      <img src="{{ url_for('static', filename='images/profile_hoseong01.jpg') }}" class="card-img" alt="...">
 							    </div>
 							    <div class="col-md-8">
 							      <div class="card-body">
@@ -157,10 +159,10 @@
 			</footer>
 
 		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/skel.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
+		<script type="text/javascript" src="{{ url_for('static', filename='assets/js/jquery.min.js') }}"></script>
+		<script type="text/javascript" src="{{ url_for('static', filename='assets/js/skel.min.js') }}"></script>
+		<script type="text/javascript" src="{{ url_for('static', filename='assets/js/util.js') }}"></script>
+		<script type="text/javascript" src="{{ url_for('static', filename='assets/js/main.js') }}"></script>
 
 	</body>
 </html>

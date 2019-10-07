@@ -226,6 +226,7 @@
 		-webkit-box-sizing: border-box;
 		box-sizing: border-box;
 		/* added by lawfirmsinsa */
+		display: -ms-flexbox;
 		display: flex;
 		-ms-flex-wrap: wrap;
 		flex-wrap: wrap;
@@ -3165,7 +3166,7 @@ th.colProfile {
 
 .card-title {
   margin-bottom: 0.75rem;
-  font-size: 3vw;
+  font-size: 2em;
   font-weight: bold;
 }
 
@@ -3175,7 +3176,7 @@ th.colProfile {
 }
 
 .card-text {
-  font-size: 2vw;
+  font-size: 1.1em;
   font-weight: bold;
 }
 
@@ -3365,17 +3366,6 @@ th.colProfile {
 .profile-span {
 	margin-left: 0em;
 	font-weight: bold;
-	font-size: 1.2vw;
-}
-
-.profile-contact {
-	margin: 1vw auto 1vw auto;
-	font-size: 1.2vw;
-}
-
-#profile_img_jinu{
-	margin-top: 50px;
-	margin-bottom: 50px;
 }
 
 .btn-win {
@@ -3393,7 +3383,7 @@ th.colProfile {
 }
 
 .table-header-font {
-	font-size: 2vw;
+	font-size: 1.2em;
 }
 
 .d-none {
