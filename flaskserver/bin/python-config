@@ -1,4 +1,4 @@
-#!/home/ubuntu/flaskserver/flaskserver/bin/python
+#!/Users/hussell/Dropbox (개인용)/05. DEV/02. projectOnWorking/flaskserver/flaskserver/bin/python
 
 import sys
 import getopt

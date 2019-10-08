@@ -1,5 +1,6 @@
-#!/home/ubuntu/flaskserver/flaskserver/bin/python3.6
-
+#!/bin/sh
+'''exec' "/Users/hussell/Dropbox (개인용)/05. DEV/02. projectOnWorking/flaskserver/flaskserver/bin/python3.7" "$0" "$@"
+' '''
 # -*- coding: utf-8 -*-
 import re
 import sys

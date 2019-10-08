@@ -62,8 +62,7 @@
 	.container {
 		margin-left: auto;
 		margin-right: auto;
-		/* added by lawfirmsinsa */
-		min-width: 992px !important;
+		
 	}
 
 	.container.\31 25\25 {
@@ -3093,7 +3092,7 @@
   margin-left: auto;
 }
 
-.container-fluid-login {
+.container-login {
 		margin-top: 300px;
 }
 
@@ -4303,5 +4302,7 @@ th.colProfile {
   margin-left: auto !important;
 }
 
-
+.hidden {
+	display: none !important;
+}
 
