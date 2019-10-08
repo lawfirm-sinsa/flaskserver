@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 from flask import Flask, request, jsonify, render_template, url_for, Blueprint, redirect
 from flask_pymongo import PyMongo
 import bcrypt
@@ -6,6 +7,14 @@ import requests
 '''from pymongo import MongoClient
 client = MongoClient('localhost',27017)
 db = client.dbLFD'''
+=======
+from flask import Flask, request, jsonify, render_template, url_for, redirect, session
+import requests
+
+from pymongo import MongoClient
+client = MongoClient('localhost',27017)
+db = client.dbLFD
+>>>>>>> 1ba04dce14cef0089c98fefbb6efffaeefce2ff5
 
 app = Flask(__name__)
 
@@ -52,11 +61,19 @@ def register():
 def lawyer():
     return render_template('lawyer.html')
 
+<<<<<<< HEAD
 '''@app.route('/signin')
 def signin():
     return render_template('signin.html')'''
 
 '''@app.route('/signin')
+=======
+@app.route('/signin')
+def signin():
+    return render_template('signin.html')
+
+@app.route('/signin')
+>>>>>>> 1ba04dce14cef0089c98fefbb6efffaeefce2ff5
 def signin_add():
     email_receive = request.form['email_receive']
     password_receive = request.form['password_receive']
@@ -67,7 +84,11 @@ def signin_add():
     }
     db.user_info.insert_one(signin_add_data)    
 
+<<<<<<< HEAD
     return jsonify({'result':'success'})'''
+=======
+    return jsonify({'result':'success'})
+>>>>>>> 1ba04dce14cef0089c98fefbb6efffaeefce2ff5
 
 if __name__ == "__main__":
     app.secret_key = 'mysecret'
