@@ -6,10 +6,10 @@
 -->
 <html>
 	<head>
-		<title>로그인</title>
+		<title>Login</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<link rel="stylesheet" href="assets/css/main.css" />		
+		<link rel="stylesheet" href="{{ url_for('static', filename='assets/css/main.css') }}" />
 
         <!-- google font -->
 	    <link href="https://fonts.googleapis.com/css?family=Do+Hyeon&display=swap" rel="stylesheet">
@@ -25,93 +25,70 @@
 	    <script src="https://apis.google.com/js/platform.js" async defer></script>
 	    <script src="https://apis.google.com/js/api:client.js"></script>
 
-	    <script>
-		  var googleUser = {};
-		  var startApp = function() {
-		    gapi.load('auth2', function(){
-		      // Retrieve the singleton for the GoogleAuth library and set up the client.
-		      auth2 = gapi.auth2.init({
-		        client_id: '477442066838-v6vnfge4mi2bd6rv02jhbufolh5riqsj.apps.googleusercontent.com',
-		        cookiepolicy: 'single_host_origin',
-		        // Request scopes in addition to 'profile' and 'email'
-		        //scope: 'additional_scope'
-		      });
-		      attachSignin(document.getElementById('customBtn'));
-		    });
-		  };
-
-		  function attachSignin(element) {
-		    console.log(element.id);
-		    auth2.attachClickHandler(element, {},
-		        function(googleUser) {
-		          document.getElementById('name').innerText = "Signed in: " +
-		              googleUser.getBasicProfile().getName();
-		        }, function(error) {
-		          alert(JSON.stringify(error, undefined, 2));
-		        });
-		  }
-		  </script>
-		  <style type="text/css">
-		    #customBtn {
-		      display: inline-block;
-		      background: white;
-		      color: #444;
-		      width: 190px;
-		      border-radius: 5px;
-		      border: thin solid #888;
-		      box-shadow: 1px 1px 1px grey;
-		      white-space: nowrap;
-		    }
-		    #customBtn:hover {
-		      cursor: pointer;
-		    }
-		    span.label {
-		      font-family: serif;
-		      font-weight: normal;
-		    }
-		    span.icon {
-		      background: url('/identity/sign-in/g-normal.png') transparent 5px 50% no-repeat;
-		      display: inline-block;
-		      vertical-align: middle;
-		      width: 42px;
-		      height: 42px;
-		    }
-		    span.buttonText {
-		      display: inline-block;
-		      vertical-align: middle;
-		      padding-left: 42px;
-		      padding-right: 42px;
-		      font-size: 14px;
-		      font-weight: bold;
-		      /* Use the Roboto font that is loaded in the <head> */
-		      font-family: 'Roboto', sans-serif;
-		    }
-		  </style>
-
+		<script>
+			function signin_add() {
+				// read email, password
+				let email = $('#inputEmail').val();
+				let password = $('#inputPassword').val();
+				// ajax 
+				$.ajax ({
+					type : "POST",
+					url : "/signin",
+					data : {
+						email_receive:email,
+						password_receive:password},
+					success: function (response) {
+						if (response['result'] == 'success') {
+							alert('회원가입 성공');
+							window.location.reload();					
+						} else {
+							alert('server error');
+						}
+					}
+				})
+	
+			}
+	
+			//$(document).ready(function() {
+			//	$('#cards-box').html('');
+			//	listing();
+			//});
+		</script>
+		
 
 	</head>
+
 	<body>
 
 		<!-- Header -->
 			<header id="header">
 				<div class="inner">
-					<a href="index.html" class="logo logoOnLogin">법무법인 신사</a>
+						<a href="{{ url_for('home')}}" class="logo">법무법인 디스커버리</a>
 					<nav id="nav">
-						<a class="rightMenu" href="lawyer.html">변호사 소개</a>
-						<a class="rightMenu" href="filed.html">업무분야</a>
+						<a class="rightMenu" href="{{ url_for('lawyer')}}">변호사 소개</a>
+						<a class="rightMenu hidden" href="filed.html">업무분야</a>
 						<a class="rightMenu" href="case.html">승소사례</a>						
 						<a class="rightMenu" href="#">|</a>
-						<a class="rightMenu" href="#">중소기업 법률자문센터</a>
-						<a class="rightMenu" href="#">법률상담 게시판</a>
+						<a class="rightMenu hidden" href="#">중소기업 법률자문센터</a>
+						<a class="rightMenu" href="#">Blog</a>
 						<a class="rightMenu" href="#">|</a>
-						<a class="rightMenu" href="login.html">로그인</a>
+						<a class="rightMenu" href="#">판례 검색</a>
+						<a class="rightMenu" href="#">Lawbot</a>
+						<a class="rightMenu" href="#">|</a>
+						<a class="rightMenu" href="{{ url_for('signin')}}">로그인</a>
 					</nav>
 					<a href="#navPanel" class="navPanelToggle"><span class="fa fa-bars"></span></a>
 				</div>
 			</header>
-							
+			
+		<!-- Banner -->
+		<section id="banner">
+			<h1>LAWFIRM DISCOVERY</h1>
+			<p>Discovery Evidence & Depend Your Right</p>
+		</section>
+			
 		<!-- login section -->
-			<div class="container-fluid container-fluid-login">
+			<div class="container">
 			  <div class="row no-gutter">
 			    <div class="d-none d-md-flex col-md-4 col-lg-6 bg-image"></div>
 			    <div class="col-md-8 col-lg-6">
@@ -135,10 +112,11 @@
 			                  <input type="checkbox" class="custom-control-input" id="customCheck1">
 			                  <label class="custom-control-label" for="customCheck1">Remember password</label>
 			                </div>			                
-		                	  <button class="btn btn-lg btn-primary btn-block btn-login text-uppercase font-weight-bold mb-2" type="submit">Sign in</button> 
+		                	  <button class="btn btn-lg btn-primary btn-block btn-login text-uppercase font-weight-bold mb-2" type="submit" onclick="signin_add()">Sign in</button> 
 			                </div>
 			                <div class="text-center">
-			                  <a class="small" href="#">Forgot password?</a></div>
+							  <a class="small" href="#">Forgot password?</a>
+							</div>
 			              </form>
 			            </div>
 			          </div>
@@ -147,16 +125,6 @@
 			    </div>
 			  </div>
 			</div> 
-
-			  <div id="gSignInWrapper">
-			    <span class="label">Sign in with:</span>
-			    <div id="customBtn" class="customGPlusSignIn">
-			      <span class="icon"></span>
-			      <span class="buttonText">Google</span>
-			    </div>
-			  </div>
-			  <div id="name"></div>
-			  <script>startApp();</script>
 
 		<!-- Footer -->
 			<footer id="footer">

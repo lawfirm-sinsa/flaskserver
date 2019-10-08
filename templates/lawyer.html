@@ -26,13 +26,16 @@
 					<a href="{{ url_for('home')}}" class="logo">법무법인 디스커버리</a>
 					<nav id="nav">
 						<a class="rightMenu" href="{{ url_for('lawyer')}}">변호사 소개</a>
-						<a class="rightMenu" href="filed.html">업무분야</a>
+						<a class="rightMenu hidden" href="filed.html">업무분야</a>
 						<a class="rightMenu" href="case.html">승소사례</a>						
 						<a class="rightMenu" href="#">|</a>
-						<a class="rightMenu" href="#">중소기업 법률자문센터</a>
-						<a class="rightMenu" href="#">법률상담 게시판</a>
+						<a class="rightMenu hidden" href="#">중소기업 법률자문센터</a>
+						<a class="rightMenu" href="#">Blog</a>
 						<a class="rightMenu" href="#">|</a>
-						<a class="rightMenu" href="login.html">로그인</a>
+						<a class="rightMenu" href="#">판례 검색</a>
+						<a class="rightMenu" href="#">Lawbot</a>
+						<a class="rightMenu" href="#">|</a>
+						<a class="rightMenu" href="{{ url_for('signin')}}">로그인</a>
 					</nav>
 					<a href="#navPanel" class="navPanelToggle"><span class="fa fa-bars"></span></a>
 				</div>
